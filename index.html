@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historical Warriors RPG</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="game-container">
+        <div class="main-view">
+            <div class="nav-buttons">
+                <button class="btn" onclick="showView('world')">World Map</button>
+                <button class="btn" onclick="showView('team')">Team</button>
+                <button class="btn" onclick="showView('training')">Training</button>
+            </div>
+            
+            <!-- World Map View -->
+            <div id="worldView" class="view active">
+                <h2>Historical Battlegrounds</h2>
+                <div class="world-map" id="worldMap"></div>
+            </div>
+            
+            <!-- Team Management View -->
+            <div id="teamView" class="view">
+                <h2>Your Warriors</h2>
+                <div id="teamRoster"></div>
+            </div>
+            
+            <!-- Training View -->
+            <div id="trainingView" class="view">
+                <h2>Training Grounds</h2>
+                <div id="trainingArea">
+                    <p>Select a warrior from your team to train them.</p>
+                    <div id="trainingInterface"></div>
+                </div>
+            </div>
+            
+            <!-- Battle View -->
+            <div id="battleView" class="view">
+                <h2 id="battleTitle">Battle Arena</h2>
+                <div class="fighter-display">
+                    <div class="fighter">
+                        <h3 id="playerName">You</h3>
+                        <div class="health-bar">
+                            <div class="health-fill" id="playerHealth" style="width: 100%"></div>
+                        </div>
+                        <div id="playerStats"></div>
+                    </div>
+                    <div class="fighter">
+                        <h3 id="enemyName">Enemy</h3>
+                        <div class="health-bar">
+                            <div class="health-fill" id="enemyHealth" style="width: 100%"></div>
+                        </div>
+                        <div id="enemyStats"></div>
+                    </div>
+                </div>
+                <div class="action-buttons">
+                    <button class="btn" onclick="attack()">Attack</button>
+                    <button class="btn" onclick="defend()">Defend</button>
+                    <button class="btn" onclick="useSkill()">Special Skill</button>
+                </div>
+                <div class="log" id="battleLog"></div>
+                <button class="btn" onclick="showView('world')" id="returnBtn" style="display: none;">Return to World</button>
+            </div>
+        </div>
+        
+        <div class="sidebar">
+            <h3>Player Status</h3>
+            <div id="playerInfo">
+                <div class="stat-bar">
+                    <span>Level:</span>
+                    <span id="playerLevel">1</span>
+                </div>
+                <div class="stat-bar">
+                    <span>Gold:</span>
+                    <span id="playerGold">100</span>
+                </div>
+                <div class="stat-bar">
+                    <span>Team Size:</span>
+                    <span id="teamSize">0/6</span>
+                </div>
+            </div>
+            
+            <h3>Available Warriors</h3>
+            <div class="team-roster" id="availableWarriors"></div>
+        </div>
+    </div>
+
+    <script src="data/gameData.js"></script>
+    <script src="js/gameState.js"></script>
+    <script src="js/viewManager.js"></script>
+    <script src="js/battleSystem.js"></script>
+    <script src="js/teamManager.js"></script>
+    <script src="js/training.js"></script>
+    <script src="js/gameInit.js"></script>
+</body>
+</html>
